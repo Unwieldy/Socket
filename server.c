@@ -27,21 +27,24 @@ int main()
 
     printf("Server is listening on port %d\n", PORT);
 
-    // Accept incoming connection
-    int socket = accept(server_fd, (struct sockaddr *)&address, &(socklen_t){sizeof(address)});
-    // TODO: error handling  
-    
-    // TODO: Read request data...
-    // int r = read(...);
-
     const char* response = "Hello, world!\n";
-    
-    // Send a response message to the client
-    send(socket, response, strlen(response), 0);
-    //TODO: error handling  
 
-    // close socket
-    close(socket);
+    while(1) {
+        // Accept incoming connection
+        int socket = accept(server_fd, (struct sockaddr *)&address, &(socklen_t){sizeof(address)});
+        // TODO: error handling  
+        //
+        // TODO: Read request data...
+        // int r = read(...);
+
+        // Send a response message to the client
+        send(socket, response, strlen(response), 0);
+        //TODO: error handling  
+
+        // close socket
+        close(socket);
+    }
+
     close(server_fd);
     
     return 0;
