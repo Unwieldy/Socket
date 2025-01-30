@@ -5,7 +5,7 @@
 
 int main()
 {
-    const int PORT = 8080;
+    const int PORT = 1337;
 
     struct sockaddr_in address = {
         .sin_family = AF_INET, // IPv4
